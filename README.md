@@ -1,4 +1,4 @@
-# Menubar Unit Converter
+# PH-Swtich (Menubar edition)
 
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
 ![Python 3.13](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
