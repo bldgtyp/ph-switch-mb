@@ -1,0 +1,79 @@
+[project]
+name = "ph-switch-mb"
+version = "0.1.00"
+description = "PH-Switch for MacOS Menubar."
+readme = "README.md"
+authors = [{ name = "PH Tools", email = "phtools@bldgtyp.com" }]
+requires-python = ">=3.13"
+dependencies = ["rumps>=0.4.0", "PH-units>=1.5.26"]
+
+[project.scripts]
+ph-switch-mb = "ph_switch_mb.__main__:main"
+
+[build-system]
+requires = ["uv_build>=0.9.1,<0.10.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "black>=24.10.0",
+    "ruff>=0.5.0",
+    "isort>=5.13.0",
+    "mypy>=1.11.0",
+    "pytest>=8.3.0",
+    "coverage>=7.11.1",
+    "pytest-cov>=7.0.0",
+    "briefcase>=0.3.18",
+]
+
+[tool.black]
+line-length = 120
+target-version = ["py313"]
+
+[tool.isort]
+profile = "black"
+known_first_party = ["ph_switch_mb"]
+line_length = 120
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "N"]
+ignore = ["E203"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.13"
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+no_implicit_optional = true
+strict_equality = true
+ignore_missing_imports = true
+show_error_codes = true
+
+[tool.briefcase]
+project_name = "PH-Switch MB"
+bundle = "com.bldgtyp"
+version = "0.1.0"
+url = "https://github.com/bldgtyp/ph-switch-mb"
+license = { text = "Proprietary" }
+author = "PH Tools"
+author_email = "phtools@bldgtyp.com"
+
+[tool.briefcase.app.ph_switch_mb]
+formal_name = "PH-Switch MB"
+description = "PH-Switch for MacOS Menubar."
+sources = ["src/ph_switch_mb"]
+requires = ["rumps>=0.4.0"]
+requirement_installer_args = ["--find-links", "vendor/wheels"]
+icon = "src/ph_switch_mb/resources/ph_switch_mb"
+
+[tool.briefcase.app.ph_switch_mb.macOS]
+requires = []
+plist_entries = { LSUIElement = true }
